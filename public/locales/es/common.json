@@ -13,6 +13,7 @@
     "next": "Siguiente"
   },
   "pagination": {
+    "page": "Página",
     "of": "de",
     "results": "resultados",
     "noResults": "No hay resultados."
