@@ -10,7 +10,8 @@
     "save": "Save",
     "cancel": "Cancel",
     "previous": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "close": "Close"
   },
   "pagination": {
     "page": "Page",

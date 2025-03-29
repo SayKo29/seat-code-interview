@@ -15,5 +15,16 @@
   },
   "success": {
     "userDeleted": "Usuario eliminado correctamente"
+  },
+  "userDetail": {
+    "title": "Detalles del Usuario",
+    "labels": {
+      "email": "Email",
+      "phone": "Teléfono",
+      "location": "Ubicación",
+      "joinDate": "Fecha de alta",
+      "position": "Cargo",
+      "description": "Descripción"
+    }
   }
 } 

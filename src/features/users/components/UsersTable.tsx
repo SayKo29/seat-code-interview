@@ -5,19 +5,23 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { DataTable } from "@/components/ui/data-table";
 import { useTranslation } from "react-i18next";
-import { Search } from "lucide-react";
+import { Search, Eye, Trash2, User as UserIcon } from "lucide-react";
+import { UserDetail } from "./UserDetail";
 
 interface User {
   id: number;
   first_name: string;
   last_name: string;
   email: string;
+  avatar?: string;
 }
 
 export function UsersTable() {
   const { t } = useTranslation(["users", "common"]);
   const { users, isLoading, error, deleteMutation } = useUsers();
   const [search, setSearch] = useState("");
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  const [detailOpen, setDetailOpen] = useState(false);
 
   if (isLoading) return (
     <div className="flex items-center justify-center h-64">
@@ -49,7 +53,33 @@ export function UsersTable() {
       .includes(search.toLowerCase())
   );
 
+  const handleShowDetails = (user: User) => {
+    setSelectedUser(user);
+    setDetailOpen(true);
+  };
+
   const columns: ColumnDef<User>[] = [
+    {
+      id: "avatar",
+      header: "",
+      cell: ({ row }) => (
+        <div className="flex justify-center">
+          <div className="h-10 w-10 rounded-full overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-600/20 p-[2px]">
+            {row.original.avatar ? (
+              <img 
+                src={row.original.avatar} 
+                alt={`${row.original.first_name} ${row.original.last_name}`} 
+                className="w-full h-full object-cover rounded-full"
+              />
+            ) : (
+              <div className="w-full h-full bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center">
+                <UserIcon className="h-5 w-5 text-gray-400" />
+              </div>
+            )}
+          </div>
+        </div>
+      ),
+    },
     {
       accessorKey: "first_name",
       header: t("table.columns.firstName"),
@@ -71,14 +101,24 @@ export function UsersTable() {
       id: "actions",
       header: t("table.columns.actions"),
       cell: ({ row }: { row: { original: User } }) => (
-        <Button
-          onClick={() => deleteMutation.mutate(row.original.id)}
-          variant="destructive"
-          size="sm"
-          className="transition-all hover:scale-105"
-        >
-          {t("buttons.delete", { ns: "common" })}
-        </Button>
+        <div className="flex gap-2">
+          <Button
+            onClick={() => handleShowDetails(row.original)}
+            variant="outline"
+            size="sm"
+            className="transition-all hover:scale-105 hover:bg-blue-50 dark:hover:bg-blue-900/20"
+          >
+            <Eye className="h-4 w-4 text-blue-500" />
+          </Button>
+          <Button
+            onClick={() => deleteMutation.mutate(row.original.id)}
+            variant="destructive"
+            size="sm"
+            className="transition-all hover:scale-105"
+          >
+            <Trash2 className="h-4 w-4" />
+          </Button>
+        </div>
       ),
     },
   ];
@@ -104,6 +144,12 @@ export function UsersTable() {
       <div className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden">
         <DataTable columns={columns} data={filteredUsers ?? []} />
       </div>
+
+      <UserDetail 
+        user={selectedUser} 
+        isOpen={detailOpen} 
+        onOpenChange={setDetailOpen} 
+      />
     </div>
   );
 }
