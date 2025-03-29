@@ -23,7 +23,7 @@ interface UserDetailProps {
   onOpenChange: (open: boolean) => void;
 }
 
-export function UserDetail({ user, isOpen, onOpenChange }: UserDetailProps) {
+function UserDetailComponent({ user, isOpen, onOpenChange }: UserDetailProps) {
   const { t } = useTranslation(["users", "common"]);
 
   if (!user) return null;
@@ -119,4 +119,7 @@ export function UserDetail({ user, isOpen, onOpenChange }: UserDetailProps) {
       </DialogContent>
     </Dialog>
   );
-} 
+}
+
+// Memoize UserDetail component to prevent unnecessary re-renders
+export const UserDetail = React.memo(UserDetailComponent); 

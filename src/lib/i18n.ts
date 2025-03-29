@@ -26,13 +26,20 @@ i18n
     // Translation loading configuration
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
+      // Add cache invalidation query parameter based on build time to ensure fresh translations after deploys
+      queryStringParams: { v: import.meta.env.PROD ? import.meta.env.VITE_BUILD_TIME || Date.now() : Date.now() }
     },
     
-    // Language detection configuration
-    detection: {
-      order: ['localStorage', 'navigator'],
-      caches: ['localStorage'],
-    },
+    // Lazy load translations to improve initial load performance
+    partialBundledLanguages: true,
+    load: 'languageOnly', // Only load language without region code (e.g. 'en' instead of 'en-US')
+    
+    // Enable React Suspense mode for translations
+    react: {
+      useSuspense: true,
+      transSupportBasicHtmlNodes: true,
+      transKeepBasicHtmlNodesFor: ['br', 'strong', 'i', 'span', 'a']
+    }
   });
 
 export default i18n; 

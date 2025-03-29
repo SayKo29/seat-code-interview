@@ -30,7 +30,7 @@ interface DataTableProps<TData, TValue> {
   data: TData[];
 }
 
-export function DataTable<TData, TValue>({
+function DataTableComponent<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
@@ -188,4 +188,7 @@ export function DataTable<TData, TValue>({
       )}
     </div>
   );
-} 
+}
+
+// Memoize DataTable for performance optimization
+export const DataTable = React.memo(DataTableComponent) as typeof DataTableComponent; 

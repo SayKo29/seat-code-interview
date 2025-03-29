@@ -34,6 +34,9 @@ export class UserService {
         throw new Error("Invalid response format");
       }
       
+      // Simular un retraso de red de 2 segundos
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
       return result.data.data;
     } catch (error) {
       console.error("Error en el servicio fetchUsers:", error);

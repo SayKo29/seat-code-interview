@@ -1,8 +1,8 @@
+import React, { useState } from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import { useUsers } from "../hooks";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
 import { DataTable } from "@/components/ui/data-table";
 import { useTranslation } from "react-i18next";
 import { Search, Eye, Trash2, User as UserIcon, Pencil } from "lucide-react";
@@ -11,9 +11,10 @@ import { UserEdit } from "./UserEdit";
 import { ConfirmDialog } from "@/components/ui/confirm-dialog";
 import { toast } from "sonner";
 import { User } from "../types";
-import { normalizeText } from "@/lib/utils";
+import { normalizeText } from "@/utils/utils";
+import { Skeleton } from "@/components/ui/skeleton";
 
-export function UsersTable() {
+function UsersTableComponent() {
   const { t } = useTranslation(["users", "common"]);
   const { users, isLoading, error, deleteMutation } = useUsers();
   const [search, setSearch] = useState("");
@@ -23,10 +24,32 @@ export function UsersTable() {
   const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
 
   if (isLoading) return (
-    <div className="flex items-center justify-center h-64">
-      <div className="animate-pulse flex flex-col items-center">
-        <div className="h-12 w-12 rounded-full bg-blue-200 mb-4"></div>
-        <p className="text-lg text-gray-600">{t("app.loading", { ns: "common" })}</p>
+    <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 mx-auto max-w-[1200px]">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+        <Skeleton className="h-8 w-48" />
+        <Skeleton className="h-10 w-full sm:w-64 md:w-96" />
+      </div>
+      
+      <div className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden">
+        <div className="p-4 space-y-4">
+          <div className="w-full">
+            <div className="rounded-md overflow-hidden">
+              <div className="overflow-x-auto">
+                <Skeleton className="h-12 w-full mb-2" />
+                {Array(5).fill(0).map((_, i) => (
+                  <Skeleton key={i} className="h-14 w-full mb-2" />
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-between mt-4">
+            <Skeleton className="h-8 w-48" />
+            <div className="flex gap-2">
+              <Skeleton className="h-10 w-24" />
+              <Skeleton className="h-10 w-24" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -215,4 +238,5 @@ export function UsersTable() {
   );
 }
 
-export default UsersTable;
+// Memoize UsersTable for performance optimization
+export const UsersTable = React.memo(UsersTableComponent);
