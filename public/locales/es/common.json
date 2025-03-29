@@ -5,15 +5,45 @@
     "error": "Ha ocurrido un error"
   },
   "buttons": {
+    "close": "Cerrar",
+    "view": "Ver detalles",
+    "cancel": "Cancelar",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "confirm": "Confirmar",
     "delete": "Eliminar",
     "edit": "Editar",
     "save": "Guardar",
-    "cancel": "Cancelar",
-    "previous": "Anterior",
-    "next": "Siguiente",
-    "close": "Cerrar"
+    "create": "Crear"
+  },
+  "users": {
+    "title": "Usuarios",
+    "create": "Crear usuario",
+    "detail": "Detalle del usuario",
+    "edit": "Editar usuario",
+    "delete": {
+      "title": "Eliminar usuario",
+      "description": "¿Estás seguro de que quieres eliminar este usuario? Esta acción no se puede deshacer."
+    },
+    "form": {
+      "name": "Nombre",
+      "surname": "Apellido",
+      "email": "Correo electrónico"
+    },
+    "toast": {
+      "delete": {
+        "success": "Usuario eliminado correctamente",
+        "error": "Error al eliminar el usuario"
+      },
+      "edit": {
+        "success": "Usuario actualizado correctamente",
+        "error": "Error al actualizar el usuario"
+      }
+    }
   },
   "pagination": {
+    "previous": "Anterior",
+    "next": "Siguiente",
     "page": "Página",
     "of": "de",
     "results": "resultados",

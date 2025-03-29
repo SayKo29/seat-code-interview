@@ -14,7 +14,8 @@
     "deleteUser": "Error al eliminar el usuario"
   },
   "success": {
-    "userDeleted": "Usuario eliminado correctamente"
+    "userDeleted": "Usuario eliminado correctamente",
+    "userUpdated": "Usuario actualizado correctamente"
   },
   "userDetail": {
     "title": "Detalles del Usuario",
@@ -25,6 +26,28 @@
       "joinDate": "Fecha de alta",
       "position": "Cargo",
       "description": "Descripción"
+    }
+  },
+  "userEdit": {
+    "title": "Editar Usuario",
+    "validation": {
+      "requiredFirstName": "El nombre es obligatorio",
+      "requiredLastName": "El apellido es obligatorio",
+      "requiredEmail": "El email es obligatorio",
+      "invalidEmail": "Email inválido"
+    }
+  },
+  "userForm": {
+    "title": "Crear Usuario Local",
+    "randomData": "Datos aleatorios",
+    "emailPlaceholder": "correo@ejemplo.com",
+    "saving": "Guardando...",
+    "validation": {
+      "requiredFields": "Por favor completa todos los campos"
+    },
+    "toast": {
+      "success": "Usuario creado correctamente",
+      "error": "Error al crear el usuario: {{error}}"
     }
   }
 } 

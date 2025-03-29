@@ -1,77 +1,77 @@
-# Gestión de Usuarios - Frontend Challenge
+# Seat Code Challenge
 
-Aplicación de gestión de usuarios que permite visualizar, buscar, ordenar, crear, editar y eliminar usuarios, con soporte para múltiples idiomas.
-Hecho para Seat Code con mucho :sparkling_heart:
+Aplicación de gestión de usuarios creada con React, TypeScript y Vite.
 
-## Tecnologías utilizadas
+## 🚀 Características
 
-- **React** + **TypeScript** + **Vite** - Framework y herramientas base
-- **TailwindCSS** - Framework CSS para estilos
-- **Shadcn/UI** - Componentes estilizados basados en Radix UI
-- **TanStack React Query** - Gestión de estado del servidor y caché
-- **TanStack React Table** - Gestión avanzada de tablas
-- **i18next** - Internacionalización
-- **Bun** - Runtime y gestor de paquetes
+- ✅ Listado de usuarios con paginación
+- ✅ Vista detallada de usuario
+- ✅ Creación de usuarios
+- ✅ Edición de usuarios
+- ✅ Eliminación de usuarios
+- ✅ Soporte para múltiples idiomas (ES/EN)
+- ✅ Modo oscuro/claro
 
-## Requisitos del proyecto
+## 🛠️ Tecnologías
 
-✅ API pública ([reqres.in](https://reqres.in/))
-✅ Cliente React con TypeScript
-✅ Operaciones CRUD (Create, Read, Update, Delete)
-✅ Gestor de estado (React Query)
-✅ Tabla de datos con:
-  - Búsqueda por cualquier campo
-  - Ordenación por campos
-  - Operaciones CRUD con UX/UI intuitiva
-  - Vista detalle de elementos seleccionados
-✅ Diseño responsivo
-✅ Arquitectura CLEAN y principios SOLID
-✅ Internacionalización (español e inglés)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [React Query](https://tanstack.com/query/latest)
+- [TailwindCSS](https://tailwindcss.com/)
+- [i18next](https://www.i18next.com/)
+- [Zod](https://zod.dev/)
+- [Sonner](https://sonner.emilkowal.ski/)
 
-## Instalación y despliegue
-
-1. **Clonar el repositorio**
-   ```bash
-   git clone <url-del-repositorio>
-   cd seat-code
-   ```
-
-2. **Instalar dependencias**
-   ```bash
-   bun install
-   ```
-
-3. **Ejecutar en modo desarrollo**
-   ```bash
-   bun dev
-   ```
-
-4. **Generar versión de producción**
-   ```bash
-   bun run build
-   ```
-
-## Estructura del proyecto
+## 📁 Estructura del proyecto
 
 ```
 src/
-├── assets/        # Archivos estáticos
-├── components/    # Componentes reutilizables
-│   └── ui/        # Componentes UI genéricos
-├── features/      # Organización por características
-│   └── users/     # Módulo de usuarios
-├── hooks/         # Hooks personalizados
-├── lib/           # Configuraciones y utilidades
-├── pages/         # Componentes de página
-├── services/      # Servicios para APIs
-└── utils/         # Funciones utilitarias
+├── assets/              # Recursos estáticos (imágenes, fuentes)
+├── components/          # Componentes compartidos
+│   └── ui/              # Componentes de UI reutilizables
+├── contexts/            # Contextos de React
+├── features/            # Características organizadas por dominio
+│   └── users/           # Todo lo relacionado con usuarios
+│       ├── api/         # Servicios API específicos de usuarios
+│       ├── components/  # Componentes específicos de usuarios
+│       ├── hooks/       # Hooks específicos de usuarios
+│       └── types/       # Tipos y esquemas de validación
+├── hooks/               # Hooks compartidos
+├── lib/                 # Utilidades y configuraciones
+├── pages/               # Páginas/rutas de la aplicación
+├── services/            # Servicios compartidos
+├── types/               # Tipos globales
+└── utils/               # Utilidades generales
 ```
 
-## Características implementadas
+## 🧩 Patrones implementados
 
-- **Gestión completa de usuarios**: Listar, buscar, crear, editar y eliminar
-- **Tabla de datos avanzada**: Ordenación, paginación y búsqueda
-- **Soporte multiidioma**: Español e inglés con detección automática
-- **Diseño responsivo**: Adaptable a diferentes dispositivos
-- **Arquitectura modular**: Basada en características (feature-based)
-- **UX/UI intuitiva**: Formularios validados y notificaciones
+- **Arquitectura orientada a características (FOA)**: Organización por dominio
+- **Custom hooks**: Lógica de negocio encapsulada
+- **Context API**: Gestión de estado global
+- **Suspense/Error boundaries**: Gestión robusta de carga/errores
+
+## 🏗️ Escalabilidad
+
+- **Estructuración clara**: Organización por dominio para facilitar búsqueda
+- **Tipado estricto**: Todo está tipado para reducir errores
+- **Validación en tiempo de ejecución**: Zod para validar datos
+- **Separación de responsabilidades**: Cada módulo tiene un propósito claro
+- **Inversión de dependencias**: Dependencias parametrizadas para facilitar testing
+
+## 📦 Instalación
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/SayKo29/seat-code-interview
+
+# Instalar dependencias
+bun install
+
+# Ejecutar en desarrollo
+bun run dev
+
+# Compilar para producción
+bun run build
+```

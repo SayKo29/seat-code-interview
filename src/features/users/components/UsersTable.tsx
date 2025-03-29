@@ -1,20 +1,17 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { useUsers } from "@/hooks/useUsers";
+import { useUsers } from "../hooks";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { DataTable } from "@/components/ui/data-table";
 import { useTranslation } from "react-i18next";
-import { Search, Eye, Trash2, User as UserIcon } from "lucide-react";
+import { Search, Eye, Trash2, User as UserIcon, Pencil } from "lucide-react";
 import { UserDetail } from "./UserDetail";
-
-interface User {
-  id: number;
-  first_name: string;
-  last_name: string;
-  email: string;
-  avatar?: string;
-}
+import { UserEdit } from "./UserEdit";
+import { ConfirmDialog } from "@/components/ui/confirm-dialog";
+import { toast } from "sonner";
+import { User } from "../types";
+import { normalizeText } from "@/utils/stringUtils";
 
 export function UsersTable() {
   const { t } = useTranslation(["users", "common"]);
@@ -22,6 +19,8 @@ export function UsersTable() {
   const [search, setSearch] = useState("");
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [detailOpen, setDetailOpen] = useState(false);
+  const [editOpen, setEditOpen] = useState(false);
+  const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
 
   if (isLoading) return (
     <div className="flex items-center justify-center h-64">
@@ -47,15 +46,48 @@ export function UsersTable() {
     </div>
   );
 
-  const filteredUsers = users?.filter((user: User) =>
-    `${user.first_name} ${user.last_name} ${user.email}`
-      .toLowerCase()
-      .includes(search.toLowerCase())
-  );
+  const filteredUsers = users?.filter((user: User) => {
+    // Texto completo del usuario (nombre, apellido y email)
+    const userText = `${user.first_name} ${user.last_name} ${user.email}`;
+    
+    // Normalizar tanto el texto del usuario como el término de búsqueda
+    const normalizedUserText = normalizeText(userText);
+    const normalizedSearch = normalizeText(search);
+    
+    // Comprobar si el texto normalizado incluye el término de búsqueda normalizado
+    return normalizedUserText.includes(normalizedSearch);
+  });
 
   const handleShowDetails = (user: User) => {
     setSelectedUser(user);
     setDetailOpen(true);
+  };
+
+  const handleEdit = (user: User) => {
+    setSelectedUser(user);
+    setEditOpen(true);
+  };
+
+  const handleUserUpdated = () => {
+    toast.success(t("users.toast.edit.success", { ns: "common" }));
+  };
+
+  const handleDeleteConfirm = (user: User) => {
+    setSelectedUser(user);
+    setDeleteConfirmOpen(true);
+  };
+
+  const handleDelete = () => {
+    if (selectedUser) {
+      deleteMutation.mutate(selectedUser.id, {
+        onSuccess: () => {
+          toast.success(t("users.toast.delete.success", { ns: "common" }));
+        },
+        onError: () => {
+          toast.error(t("users.toast.delete.error", { ns: "common" }));
+        }
+      });
+    }
   };
 
   const columns: ColumnDef<User>[] = [
@@ -106,17 +138,28 @@ export function UsersTable() {
             onClick={() => handleShowDetails(row.original)}
             variant="outline"
             size="sm"
-            className="transition-all hover:scale-105 hover:bg-blue-50 dark:hover:bg-blue-900/20"
+            className="transition-all hover:scale-105 hover:bg-blue-100 dark:hover:bg-blue-900/20 group"
+            title={t("buttons.view", { ns: "common" })}
           >
-            <Eye className="h-4 w-4 text-blue-500" />
+            <Eye className="h-4 w-4 text-blue-500 group-hover:text-blue-700 dark:group-hover:text-blue-300" />
           </Button>
           <Button
-            onClick={() => deleteMutation.mutate(row.original.id)}
-            variant="destructive"
+            onClick={() => handleEdit(row.original)}
+            variant="outline"
             size="sm"
-            className="transition-all hover:scale-105"
+            className="transition-all hover:scale-105 hover:bg-green-100 dark:hover:bg-green-900/20 group"
+            title={t("buttons.edit", { ns: "common" })}
           >
-            <Trash2 className="h-4 w-4" />
+            <Pencil className="h-4 w-4 text-green-500 group-hover:text-green-700 dark:group-hover:text-green-300" />
+          </Button>
+          <Button
+            onClick={() => handleDeleteConfirm(row.original)}
+            variant="outline"
+            size="sm"
+            className="transition-all hover:scale-105 hover:bg-red-100 dark:hover:bg-red-900/20 group"
+            title={t("buttons.delete", { ns: "common" })}
+          >
+            <Trash2 className="h-4 w-4 text-red-500 group-hover:text-red-700 dark:group-hover:text-red-300" />
           </Button>
         </div>
       ),
@@ -145,10 +188,28 @@ export function UsersTable() {
         <DataTable columns={columns} data={filteredUsers ?? []} />
       </div>
 
+      {/* Modal */}
       <UserDetail 
         user={selectedUser} 
         isOpen={detailOpen} 
         onOpenChange={setDetailOpen} 
+      />
+      
+      <UserEdit
+        user={selectedUser}
+        isOpen={editOpen}
+        onOpenChange={setEditOpen}
+        onUserUpdated={handleUserUpdated}
+      />
+
+      {/* Confirm Delete dialog */}
+      <ConfirmDialog
+        open={deleteConfirmOpen}
+        onOpenChange={setDeleteConfirmOpen}
+        title={t("users.delete.title", { ns: "common" })}
+        description={t("users.delete.description", { ns: "common" })}
+        onConfirm={handleDelete}
+        variant="destructive"
       />
     </div>
   );

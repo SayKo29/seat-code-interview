@@ -14,7 +14,8 @@
     "deleteUser": "Error deleting user"
   },
   "success": {
-    "userDeleted": "User successfully deleted"
+    "userDeleted": "User successfully deleted",
+    "userUpdated": "User successfully updated"
   },
   "userDetail": {
     "title": "User Details",
@@ -25,6 +26,28 @@
       "joinDate": "Join Date",
       "position": "Position",
       "description": "Description"
+    }
+  },
+  "userEdit": {
+    "title": "Edit User",
+    "validation": {
+      "requiredFirstName": "First name is required",
+      "requiredLastName": "Last name is required",
+      "requiredEmail": "Email is required",
+      "invalidEmail": "Invalid email"
+    }
+  },
+  "userForm": {
+    "title": "Create Local User",
+    "randomData": "Random Data",
+    "emailPlaceholder": "email@example.com",
+    "saving": "Saving...",
+    "validation": {
+      "requiredFields": "Please complete all fields"
+    },
+    "toast": {
+      "success": "User created successfully",
+      "error": "Error creating user: {{error}}"
     }
   }
 } 

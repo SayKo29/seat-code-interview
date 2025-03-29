@@ -61,7 +61,7 @@ export function DataTable<TData, TValue>({
           <Table>
             <TableHeader className="bg-gray-100 dark:bg-gray-800">
               {table.getHeaderGroups().map((headerGroup: HeaderGroup<TData>) => (
-                <TableRow key={headerGroup.id} className="border-b dark:border-gray-700">
+                <TableRow key={headerGroup.id} className="border-b border-gray-300 dark:border-gray-700">
                   {headerGroup.headers.map((header: Header<TData, unknown>) => (
                     <TableHead 
                       key={header.id}
@@ -79,11 +79,11 @@ export function DataTable<TData, TValue>({
                         {header.column.getCanSort() && (
                           <span className="inline-flex">
                             {header.column.getIsSorted() === "asc" ? (
-                              <ChevronUp className="h-4 w-4" />
+                              <ChevronUp className="h-4 w-4 text-gray-700 dark:text-gray-300" />
                             ) : header.column.getIsSorted() === "desc" ? (
-                              <ChevronDown className="h-4 w-4" />
+                              <ChevronDown className="h-4 w-4 text-gray-700 dark:text-gray-300" />
                             ) : (
-                              <div className="h-4 w-4 opacity-0 group-hover:opacity-50">
+                              <div className="h-4 w-4 opacity-0 group-hover:opacity-70">
                                 <ChevronUp className="h-2 w-2" />
                                 <ChevronDown className="h-2 w-2" />
                               </div>
@@ -98,16 +98,21 @@ export function DataTable<TData, TValue>({
             </TableHeader>
             <TableBody>
               {table.getRowModel().rows?.length ? (
-                table.getRowModel().rows.map((row: Row<TData>) => (
+                table.getRowModel().rows.map((row: Row<TData>, index: number) => (
                   <TableRow
                     key={row.id}
-                    className="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                    className={`
+                      border-b border-gray-200 dark:border-gray-700 
+                      ${index % 2 === 0 
+                        ? "bg-white dark:bg-gray-900" 
+                        : "bg-blue-50 dark:bg-gray-800/30"}
+                    `}
                     data-state={row.getIsSelected() && "selected"}
                   >
                     {row.getVisibleCells().map((cell: Cell<TData, unknown>) => (
                       <TableCell 
                         key={cell.id}
-                        className="py-3 px-4"
+                        className="py-3 px-4 text-gray-800 dark:text-gray-200"
                       >
                         {flexRender(
                           cell.column.columnDef.cell,
@@ -121,7 +126,7 @@ export function DataTable<TData, TValue>({
                 <TableRow>
                   <TableCell
                     colSpan={columns.length}
-                    className="h-24 text-center text-gray-500 dark:text-gray-400"
+                    className="h-24 text-center text-gray-600 dark:text-gray-400 font-medium"
                   >
                     {t("pagination.noResults")}
                   </TableCell>
@@ -133,9 +138,9 @@ export function DataTable<TData, TValue>({
       </div>
       
       {table.getRowModel().rows?.length > 0 && (
-        <div className="flex flex-col sm:flex-row justify-between items-center px-4 py-3 bg-white dark:bg-gray-800 border-t dark:border-gray-700">
-          <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4 sm:mb-0">
-            {t("pagination.page")} {table.getState().pagination.pageIndex + 1} {t("pagination.of")} {table.getPageCount()} 
+        <div className="flex flex-col sm:flex-row justify-between items-center px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-b-lg">
+          <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 font-medium mb-4 sm:mb-0">
+            {t("pagination.page")} {table.getState().pagination.pageIndex + 1} {t("pagination.of")} {table.getPageCount()} {" "}
             ({data.length} {t("pagination.results")})
           </div>
           
