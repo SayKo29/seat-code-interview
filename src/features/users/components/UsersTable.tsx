@@ -47,14 +47,14 @@ export function UsersTable() {
   );
 
   const filteredUsers = users?.filter((user: User) => {
-    // Texto completo del usuario (nombre, apellido y email)
+    // Text combined from user's first name, last name and email
     const userText = `${user.first_name} ${user.last_name} ${user.email}`;
     
-    // Normalizar tanto el texto del usuario como el término de búsqueda
+    // Normalize both user text and search term
     const normalizedUserText = normalizeText(userText);
     const normalizedSearch = normalizeText(search);
     
-    // Comprobar si el texto normalizado incluye el término de búsqueda normalizado
+    // Check if normalized user text includes normalized search term
     return normalizedUserText.includes(normalizedSearch);
   });
 

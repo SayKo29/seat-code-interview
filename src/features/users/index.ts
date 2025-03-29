@@ -1,13 +1,13 @@
-// Re-exportamos todo lo que sea público de nuestra feature
+// Re-export all public exports from our feature
 import { UsersTable } from './components/UsersTable';
 import { UserForm } from './components/UserForm';
 import { UserDetail } from './components/UserDetail';
 import { UserEdit } from './components/UserEdit';
 
-// Exportaciones nombradas específicas para componentes
+// Named exports for components
 export { UsersTable, UserForm, UserDetail, UserEdit };
 
-// Exportaciones de módulos completos para hooks, api y store
+// Export complete modules for hooks, api and store
 export * from './hooks';
 export * from './api';
 export * from './store'; 
