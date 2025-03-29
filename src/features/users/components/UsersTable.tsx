@@ -11,7 +11,7 @@ import { UserEdit } from "./UserEdit";
 import { ConfirmDialog } from "@/components/ui/confirm-dialog";
 import { toast } from "sonner";
 import { User } from "../types";
-import { normalizeText } from "@/utils/stringUtils";
+import { normalizeText } from "@/lib/utils";
 
 export function UsersTable() {
   const { t } = useTranslation(["users", "common"]);
