@@ -1,0 +1,19 @@
+{
+  "table": {
+    "title": "Lista de Usuarios",
+    "searchPlaceholder": "Buscar...",
+    "columns": {
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Email",
+      "actions": "Acciones"
+    }
+  },
+  "errors": {
+    "loadingUsers": "Error al cargar los usuarios",
+    "deleteUser": "Error al eliminar el usuario"
+  },
+  "success": {
+    "userDeleted": "Usuario eliminado correctamente"
+  }
+} 

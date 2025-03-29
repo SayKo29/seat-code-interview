@@ -1,0 +1,19 @@
+{
+  "table": {
+    "title": "Users List",
+    "searchPlaceholder": "Search...",
+    "columns": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "actions": "Actions"
+    }
+  },
+  "errors": {
+    "loadingUsers": "Error loading users",
+    "deleteUser": "Error deleting user"
+  },
+  "success": {
+    "userDeleted": "User successfully deleted"
+  }
+} 

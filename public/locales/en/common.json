@@ -1,0 +1,20 @@
+{
+  "app": {
+    "title": "User Management",
+    "loading": "Loading...",
+    "error": "An error has occurred"
+  },
+  "buttons": {
+    "delete": "Delete",
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "pagination": {
+    "of": "of",
+    "results": "results",
+    "noResults": "No results found."
+  }
+} 

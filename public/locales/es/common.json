@@ -1,0 +1,20 @@
+{
+  "app": {
+    "title": "Gestión de Usuarios",
+    "loading": "Cargando...",
+    "error": "Ha ocurrido un error"
+  },
+  "buttons": {
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "previous": "Anterior",
+    "next": "Siguiente"
+  },
+  "pagination": {
+    "of": "de",
+    "results": "resultados",
+    "noResults": "No hay resultados."
+  }
+} 
