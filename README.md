@@ -1,54 +1,77 @@
-# React + TypeScript + Vite
+# Gestión de Usuarios - Frontend Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación de gestión de usuarios que permite visualizar, buscar, ordenar, crear, editar y eliminar usuarios, con soporte para múltiples idiomas.
+Hecho para Seat Code con mucho :sparkling_heart:
 
-Currently, two official plugins are available:
+## Tecnologías utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** + **TypeScript** + **Vite** - Framework y herramientas base
+- **TailwindCSS** - Framework CSS para estilos
+- **Shadcn/UI** - Componentes estilizados basados en Radix UI
+- **TanStack React Query** - Gestión de estado del servidor y caché
+- **TanStack React Table** - Gestión avanzada de tablas
+- **i18next** - Internacionalización
+- **Bun** - Runtime y gestor de paquetes
 
-## Expanding the ESLint configuration
+## Requisitos del proyecto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+✅ API pública ([reqres.in](https://reqres.in/))
+✅ Cliente React con TypeScript
+✅ Operaciones CRUD (Create, Read, Update, Delete)
+✅ Gestor de estado (React Query)
+✅ Tabla de datos con:
+  - Búsqueda por cualquier campo
+  - Ordenación por campos
+  - Operaciones CRUD con UX/UI intuitiva
+  - Vista detalle de elementos seleccionados
+✅ Diseño responsivo
+✅ Arquitectura CLEAN y principios SOLID
+✅ Internacionalización (español e inglés)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Instalación y despliegue
+
+1. **Clonar el repositorio**
+   ```bash
+   git clone <url-del-repositorio>
+   cd seat-code
+   ```
+
+2. **Instalar dependencias**
+   ```bash
+   bun install
+   ```
+
+3. **Ejecutar en modo desarrollo**
+   ```bash
+   bun dev
+   ```
+
+4. **Generar versión de producción**
+   ```bash
+   bun run build
+   ```
+
+## Estructura del proyecto
+
+```
+src/
+├── assets/        # Archivos estáticos
+├── components/    # Componentes reutilizables
+│   └── ui/        # Componentes UI genéricos
+├── features/      # Organización por características
+│   └── users/     # Módulo de usuarios
+├── hooks/         # Hooks personalizados
+├── lib/           # Configuraciones y utilidades
+├── pages/         # Componentes de página
+├── services/      # Servicios para APIs
+└── utils/         # Funciones utilitarias
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Características implementadas
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **Gestión completa de usuarios**: Listar, buscar, crear, editar y eliminar
+- **Tabla de datos avanzada**: Ordenación, paginación y búsqueda
+- **Soporte multiidioma**: Español e inglés con detección automática
+- **Diseño responsivo**: Adaptable a diferentes dispositivos
+- **Arquitectura modular**: Basada en características (feature-based)
+- **UX/UI intuitiva**: Formularios validados y notificaciones
