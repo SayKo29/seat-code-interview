@@ -7,21 +7,18 @@ interface ThemeSwitcherProps {
 }
 
 export function ThemeSwitcher({ className }: ThemeSwitcherProps) {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   // Initialize the theme based on user preferences or localStorage
   useEffect(() => {
     // Check if there is a saved theme
     const savedTheme = localStorage.getItem("theme");
     
-    // Check system preference if there is no saved theme
-    const prefersDark = window.matchMedia && 
-      window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    // Set the initial theme
+    // Si no hay tema guardado, usar oscuro por defecto
+    // Si hay tema guardado, respetar la preferencia del usuario
     const initialDark = savedTheme 
       ? savedTheme === "dark" 
-      : prefersDark;
+      : true; // Por defecto oscuro para nuevos usuarios
     
     setIsDark(initialDark);
     

@@ -151,6 +151,7 @@ function UsersTableComponent() {
           {row.original.email}
         </a>
       ),
+      size: 1000,
     },
     {
       id: "actions",
@@ -186,6 +187,9 @@ function UsersTableComponent() {
           </Button>
         </div>
       ),
+      size: 135,
+      enableSorting: false,
+      enableResizing: false,
     },
   ];
 

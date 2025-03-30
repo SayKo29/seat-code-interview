@@ -34,7 +34,7 @@ export function UserForm({ onSubmit, onCancel }: UserFormProps) {
       return;
     }
     
-    // Crear el objeto usuario
+    // Create user object
     const newUser: User = {
       id: Math.floor(Math.random() * 1000),
       first_name: form.first_name,
@@ -43,16 +43,22 @@ export function UserForm({ onSubmit, onCancel }: UserFormProps) {
       avatar: '',
     };
     
-    // Si se proporcionó una función onSubmit externa, usarla
+    // If external onSubmit provided, use it
     if (onSubmit) {
       onSubmit(newUser);
       return;
     }
     
-    // De lo contrario, usar la mutación interna
-    createMutation.mutate(form, {
+    // Otherwise use internal mutation
+    const userPayload = {
+      first_name: form.first_name,
+      last_name: form.last_name,
+      email: form.email
+    };
+    
+    createMutation.mutate(userPayload, {
       onSuccess: () => {
-        toast.success(t('userForm.toast.success', { ns: 'users' }));
+        toast.success(t('userForm.toast.success', { ns: 'users', firstName: form.first_name }));
         setForm({
           first_name: '',
           last_name: '',

@@ -3,9 +3,9 @@ import { LanguageSwitcher } from "./components/ui/language-switcher";
 import { ThemeSwitcher } from "./components/ui/theme-switcher";
 import { useTranslation } from "react-i18next";
 import { Toaster } from "./components/ui/sonner";
-import { toast } from "sonner";
-import { User } from "./features/users/types";
-
+import { Button } from "./components/ui/button";
+import { PlusCircle, MinusCircle } from "lucide-react";
+import { FormSkeleton, TableSkeleton } from "./components/ui/skeletons";
 
 // Lazy load components to improve initial load time
 const UserForm = lazy(() => import("./features/users/components/UserForm").then(module => ({ 
@@ -16,22 +16,12 @@ const UsersTable = lazy(() => import("./features/users/components/UsersTable").t
   default: module.UsersTable 
 })));
 
-// Fallback para componentes en carga
-const LoadingIndicator = () => (
-  <div className="flex items-center justify-center p-8">
-    <div className="animate-spin h-10 w-10 border-4 border-blue-500 rounded-full border-t-transparent"></div>
-  </div>
-);
-
 function App() {
   const { t } = useTranslation();
-  const [showForm, setShowForm] = useState(true);
+  const [showForm, setShowForm] = useState(false);
 
-  // Handle form submission with proper typing
-  const handleUserSubmit = (userData: User) => {
-    // Use the user data (e.g. first name) in success message
-    toast.success(t("userForm.toast.success") + `: ${userData.first_name}`);
-    setShowForm(false);
+  const toggleForm = () => {
+    setShowForm(!showForm);
   };
 
   const handleCancel = () => {
@@ -50,17 +40,34 @@ function App() {
           </div>
         </div>
       </header>
+
+      <div className="mb-4 max-w-[1200px] mx-auto">
+        <Button
+          onClick={toggleForm}
+          className="flex items-center gap-2 transition-all hover:scale-105"
+          variant={showForm ? "outline" : "default"}
+        >
+          {showForm ? (
+            <>
+              <MinusCircle className="h-4 w-4" />
+              {t("buttons.hideForm", { defaultValue: "Hide Form" })}
+            </>
+          ) : (
+            <>
+              <PlusCircle className="h-4 w-4" />
+              {t("buttons.showForm", { defaultValue: "New User" })}
+            </>
+          )}
+        </Button>
+      </div>
       
       {showForm && (
-        <Suspense fallback={<LoadingIndicator />}>
-          <UserForm 
-            onSubmit={handleUserSubmit}
-            onCancel={handleCancel}
-          />
+        <Suspense fallback={<FormSkeleton />}>
+          <UserForm onCancel={handleCancel} />
         </Suspense>
       )}
       
-      <Suspense fallback={<LoadingIndicator />}>
+      <Suspense fallback={<TableSkeleton />}>
         <UsersTable />
       </Suspense>
 
