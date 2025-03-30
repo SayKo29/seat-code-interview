@@ -77,7 +77,6 @@ export function AppTour() {
       }
     });
 
-    // Guardar la referencia en lugar de usar estado
     driverRef.current = driverObj;
 
     const handleStart = () => {
@@ -105,7 +104,6 @@ export function AppTour() {
     };
   }, [t]);
 
-  // Este componente no renderiza nada visible
   return null;
 }
 
