@@ -92,7 +92,13 @@ function UsersTableComponent() {
   };
 
   const handleUserUpdated = () => {
-    toast.success(t("users.toast.edit.success", { ns: "common" }));
+    if (selectedUser) {
+      toast.success(t("users.toast.edit.success", { 
+        ns: "common",
+        firstName: selectedUser.first_name,
+        lastName: selectedUser.last_name
+      }));
+    }
   };
 
   const handleDeleteConfirm = (user: User) => {
@@ -104,7 +110,11 @@ function UsersTableComponent() {
     if (selectedUser) {
       deleteMutation.mutate(selectedUser.id, {
         onSuccess: () => {
-          toast.success(t("users.toast.delete.success", { ns: "common" }));
+          toast.success(t("users.toast.delete.success", { 
+            ns: "common",
+            firstName: selectedUser.first_name,
+            lastName: selectedUser.last_name
+          }));
         },
         onError: () => {
           toast.error(t("users.toast.delete.error", { ns: "common" }));

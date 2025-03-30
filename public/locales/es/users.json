@@ -30,6 +30,7 @@
   },
   "userEdit": {
     "title": "Editar Usuario",
+    "saving": "Guardando...",
     "validation": {
       "requiredFirstName": "El nombre es obligatorio",
       "requiredLastName": "El apellido es obligatorio",

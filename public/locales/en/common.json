@@ -15,7 +15,9 @@
     "edit": "Edit",
     "save": "Save",
     "create": "Create",
-    "saving": "Saving..."
+    "saving": "Saving...",
+    "hideForm": "Hide Form",
+    "showForm": "New User"
   },
   "users": {
     "title": "Users",
@@ -33,15 +35,15 @@
     },
     "toast": {
       "delete": {
-        "success": "User successfully deleted",
+        "success": "User {{firstName}} {{lastName}} successfully deleted",
         "error": "Error deleting user"
       },
       "edit": {
-        "success": "User successfully updated",
+        "success": "User {{firstName}} {{lastName}} successfully updated",
         "error": "Error updating user"
       },
       "create": {
-        "success": "User successfully created",
+        "success": "User {{firstName}} {{lastName}} successfully created",
         "error": "Error creating user"
       }
     }

@@ -125,3 +125,68 @@
     background-attachment: fixed;
   }
 }
+
+/* Custom animation for the toggle */
+@keyframes stretch {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 0.8);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.animate-stretch {
+  animation: stretch 0.5s ease-out;
+}
+
+/* Custom class for handling text with ellipsis */
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Custom styles for select */
+.language-select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding-right: 1rem;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  line-height: inherit;
+  outline: none;
+}
+
+/* Extra small screens breakpoint */
+@media (max-width: 400px) {
+  .max-xs\:flex-col {
+    flex-direction: column;
+  }
+  .max-xs\:items-center {
+    align-items: center;
+  }
+  .max-xs\:text-center {
+    text-align: center;
+  }
+  .max-xs\:mb-4 {
+    margin-bottom: 1rem;
+  }
+  .max-xs\:my-2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .max-xs\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .max-xs\:col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+}

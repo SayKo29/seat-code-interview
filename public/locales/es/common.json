@@ -14,7 +14,9 @@
     "delete": "Eliminar",
     "edit": "Editar",
     "save": "Guardar",
-    "create": "Crear"
+    "create": "Crear",
+    "hideForm": "Ocultar formulario",
+    "showForm": "Nuevo usuario"
   },
   "users": {
     "title": "Usuarios",
@@ -32,11 +34,11 @@
     },
     "toast": {
       "delete": {
-        "success": "Usuario eliminado correctamente",
+        "success": "Usuario {{firstName}} {{lastName}} eliminado correctamente",
         "error": "Error al eliminar el usuario"
       },
       "edit": {
-        "success": "Usuario actualizado correctamente",
+        "success": "Usuario {{firstName}} {{lastName}} actualizado correctamente",
         "error": "Error al actualizar el usuario"
       }
     }

@@ -30,6 +30,7 @@
   },
   "userEdit": {
     "title": "Edit User",
+    "saving": "Saving...",
     "validation": {
       "requiredFirstName": "First name is required",
       "requiredLastName": "Last name is required",
