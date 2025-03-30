@@ -71,7 +71,7 @@
     "confirmExit": "Are you sure you want to exit the tutorial? You can restart it later.",
     "welcome": {
       "title": "Welcome to User Management!",
-      "description": "This application allows you to manage users easily. Follow this tutorial to learn how to use it."
+      "description": "This application allows you to manage users easily. Developer notes: The api always returns the same users, the crud is done in memory, there is no data persistence. I hope you like it ;)"
     },
     "table": {
       "title": "Users List",

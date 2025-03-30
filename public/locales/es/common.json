@@ -66,7 +66,7 @@
     "confirmExit": "¿Seguro que quieres salir del tutorial? Podrás reiniciarlo más tarde.",
     "welcome": {
       "title": "¡Bienvenido/a a la Gestión de Usuarios!",
-      "description": "Esta aplicación te permite gestionar usuarios de forma sencilla. Sigue este tutorial para aprender a utilizarla."
+      "description": "Esta aplicación te permite gestionar usuarios de forma sencilla. Notas del desarrollador: La api devuelve siempre los mismos usuarios, el crud se hace en memoria, no hay persistencia de datos. Espero que te guste ;)"
     },
     "table": {
       "title": "Lista de Usuarios",
