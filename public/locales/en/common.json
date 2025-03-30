@@ -14,6 +14,7 @@
     "previous": "Previous",
     "edit": "Edit",
     "save": "Save",
+    "done": "Done",
     "create": "Create",
     "saving": "Saving...",
     "hideForm": "Hide Form",
@@ -55,5 +56,38 @@
     "of": "of",
     "results": "results",
     "noResults": "No results found."
+  },
+  "next": "Next",
+  "previous": "Previous",
+  "close": "Close",
+  "cancel": "Cancel",
+  "save": "Save",
+  "addNew": "Add new",
+  "delete": "Delete",
+  "edit": "Edit",
+  "view": "View",
+  "tour": {
+    "restart": "Restart tour",
+    "confirmExit": "Are you sure you want to exit the tutorial? You can restart it later.",
+    "welcome": {
+      "title": "Welcome to User Management!",
+      "description": "This application allows you to manage users easily. Follow this tutorial to learn how to use it."
+    },
+    "table": {
+      "title": "Users List",
+      "description": "Here you will see all users in the system. You can sort, search, and perform actions on them."
+    },
+    "newUser": {
+      "title": "Create New User",
+      "description": "Click this button to open the user creation form. You can add randomized or custom data."
+    },
+    "theme": {
+      "title": "Change Theme",
+      "description": "Switch between light and dark themes according to your preferences."
+    },
+    "language": {
+      "title": "Change Language",
+      "description": "You can change the application language between Spanish and English."
+    }
   }
 } 

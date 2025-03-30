@@ -12,7 +12,7 @@ Aplicación de gestión de usuarios que permite crear, leer, actualizar y elimin
 - ✅ Tema claro/oscuro
 - ✅ Diseño responsive
 - ✅ Pruebas unitarias con Vitest
-- ✅ Pruebas end-to-end con Cypress
+- ✅ Tour de la aplicación
 
 ## Tecnologías
 
@@ -23,7 +23,6 @@ Aplicación de gestión de usuarios que permite crear, leer, actualizar y elimin
 - Zustand
 - i18next
 - Vitest
-- Cypress
 
 ## Instalación
 
@@ -43,24 +42,6 @@ npm run dev
 # Ejecutar pruebas unitarias
 npm run test
 
-# Ejecutar pruebas unitarias con UI
-npm run test:ui
-
-# Ejecutar pruebas unitarias y generar informe de cobertura
-npm run test:coverage
-```
-
-### Pruebas End-to-End (Cypress)
-
-```bash
-# Abrir Cypress en modo interactivo
-npm run cypress:open
-
-# Ejecutar pruebas e2e en modo headless
-npm run cypress:run
-
-# Ejecutar solo pruebas e2e
-npm run test:e2e
 ```
 
 ## Estructura del Proyecto

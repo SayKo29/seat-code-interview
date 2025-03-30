@@ -39,16 +39,39 @@
     }
   },
   "userForm": {
-    "title": "Crear Usuario Local",
+    "title": "Gestión de usuarios",
+    "createTitle": "Crear nuevo usuario",
+    "editTitle": "Editar usuario",
+    "emailPlaceholder": "ejemplo@correo.com",
     "randomData": "Datos aleatorios",
-    "emailPlaceholder": "correo@ejemplo.com",
     "saving": "Guardando...",
-    "validation": {
-      "requiredFields": "Por favor completa todos los campos"
-    },
     "toast": {
-      "success": "Usuario creado correctamente",
-      "error": "Error al crear el usuario: {{error}}"
+      "success": "Usuario {{firstName}} guardado correctamente",
+      "error": "Error al guardar el usuario: {{error}}"
+    },
+    "validation": {
+      "requiredFields": "Por favor, completa todos los campos obligatorios"
     }
-  }
+  },
+  "successAdd": "Usuario añadido correctamente",
+  "successUpdate": "Usuario actualizado correctamente",
+  "successDelete": "Usuario eliminado correctamente",
+  "errorAdd": "Error al añadir el usuario",
+  "errorUpdate": "Error al actualizar el usuario",
+  "errorDelete": "Error al eliminar el usuario",
+  "create": "Crear usuario",
+  "edit": "Editar usuario",
+  "createDesc": "Completa el formulario para crear un nuevo usuario",
+  "editDesc": "Modifica los datos del usuario seleccionado",
+  "name": "Nombre",
+  "email": "Correo electrónico",
+  "role": "Rol",
+  "status": "Estado",
+  "createBtn": "Crear usuario",
+  "updateBtn": "Actualizar usuario",
+  "namePlaceholder": "Introduce el nombre",
+  "emailPlaceholder": "Introduce el correo electrónico",
+  "rolePlaceholder": "Introduce el rol",
+  "statusPlaceholder": "Introduce el estado",
+  "randomData": "Datos aleatorios"
 } 

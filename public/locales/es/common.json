@@ -14,6 +14,7 @@
     "delete": "Eliminar",
     "edit": "Editar",
     "save": "Guardar",
+    "done": "Finalizar",
     "create": "Crear",
     "hideForm": "Ocultar formulario",
     "showForm": "Nuevo usuario"
@@ -50,5 +51,38 @@
     "of": "de",
     "results": "resultados",
     "noResults": "No hay resultados."
+  },
+  "next": "Siguiente",
+  "previous": "Anterior",
+  "close": "Cerrar",
+  "cancel": "Cancelar",
+  "save": "Guardar",
+  "addNew": "Añadir nuevo",
+  "delete": "Eliminar",
+  "edit": "Editar",
+  "view": "Ver",
+  "tour": {
+    "restart": "Reiniciar tour",
+    "confirmExit": "¿Seguro que quieres salir del tutorial? Podrás reiniciarlo más tarde.",
+    "welcome": {
+      "title": "¡Bienvenido/a a la Gestión de Usuarios!",
+      "description": "Esta aplicación te permite gestionar usuarios de forma sencilla. Sigue este tutorial para aprender a utilizarla."
+    },
+    "table": {
+      "title": "Lista de Usuarios",
+      "description": "Aquí verás todos los usuarios del sistema. Puedes ordenar, buscar y realizar acciones sobre ellos."
+    },
+    "newUser": {
+      "title": "Crear Nuevo Usuario",
+      "description": "Haz clic en este botón para abrir el formulario de creación de usuarios. Puedes añadir datos aleatorizados o personalizados."
+    },
+    "theme": {
+      "title": "Cambiar Tema",
+      "description": "Cambia entre tema claro y oscuro según tus preferencias."
+    },
+    "language": {
+      "title": "Cambiar Idioma",
+      "description": "Puedes cambiar el idioma de la aplicación entre español e inglés."
+    }
   }
 } 

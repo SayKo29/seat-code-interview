@@ -221,7 +221,7 @@ function UsersTableComponent() {
         </div>
       </div>
       
-      <div className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden">
+      <div className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden" data-tour="users-table">
         <DataTable columns={columns} data={filteredUsers ?? []} />
       </div>
 

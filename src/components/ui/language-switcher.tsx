@@ -52,17 +52,19 @@ export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
   return (
     <div className={cn("flex items-center relative group transition-all duration-200 hover:scale-105", className)}>
       <Globe className="h-4 w-4 absolute left-3 z-10 text-gray-500 group-hover:text-blue-500" />
-      <select 
-        value={selectedLanguage} 
-        onChange={changeLanguage}
-        className="h-9 pl-9 pr-8 py-2 opacity-0 absolute inset-0 appearance-none cursor-pointer
-                text-black dark:text-white bg-white dark:bg-gray-900"
-        style={{ colorScheme: 'light' }}
-        aria-label="Seleccionar idioma"
-      >
-        <option value="es" className="bg-white dark:bg-gray-800 text-black dark:text-white">Español</option>
-        <option value="en" className="bg-white dark:bg-gray-800 text-black dark:text-white">English</option>
-      </select>
+      <div className="language-switcher">
+        <select 
+          value={selectedLanguage} 
+          onChange={changeLanguage}
+          className="h-9 pl-9 pr-8 py-2 opacity-0 absolute inset-0 appearance-none cursor-pointer
+                  text-black dark:text-white bg-white dark:bg-gray-900"
+          style={{ colorScheme: 'light' }}
+          aria-label="Seleccionar idioma"
+        >
+          <option value="es" className="bg-white dark:bg-gray-800 text-black dark:text-white">Español</option>
+          <option value="en" className="bg-white dark:bg-gray-800 text-black dark:text-white">English</option>
+        </select>
+      </div>
 
       {/* Contenedor visible que imita el select */}
       <div className="h-9 pl-9 pr-8 py-2 bg-white dark:bg-gray-900 border rounded-md shadow-sm text-sm

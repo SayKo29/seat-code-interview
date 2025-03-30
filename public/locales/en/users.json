@@ -39,16 +39,39 @@
     }
   },
   "userForm": {
-    "title": "Create Local User",
+    "title": "User Management",
+    "createTitle": "Create New User",
+    "editTitle": "Edit User",
+    "emailPlaceholder": "example@email.com",
     "randomData": "Random Data",
-    "emailPlaceholder": "email@example.com",
     "saving": "Saving...",
-    "validation": {
-      "requiredFields": "Please complete all fields"
-    },
     "toast": {
-      "success": "User created successfully",
-      "error": "Error creating user: {{error}}"
+      "success": "User {{firstName}} saved successfully",
+      "error": "Error saving user: {{error}}"
+    },
+    "validation": {
+      "requiredFields": "Please complete all required fields"
     }
-  }
+  },
+  "successAdd": "User added successfully",
+  "successUpdate": "User updated successfully",
+  "successDelete": "User deleted successfully",
+  "errorAdd": "Error adding user",
+  "errorUpdate": "Error updating user",
+  "errorDelete": "Error deleting user",
+  "create": "Create User",
+  "edit": "Edit User",
+  "createDesc": "Complete the form to create a new user",
+  "editDesc": "Modify the selected user data",
+  "name": "Name",
+  "email": "Email",
+  "role": "Role",
+  "status": "Status",
+  "createBtn": "Create User",
+  "updateBtn": "Update User",
+  "namePlaceholder": "Enter name",
+  "emailPlaceholder": "Enter email",
+  "rolePlaceholder": "Enter role",
+  "statusPlaceholder": "Enter status",
+  "randomData": "Random Data"
 } 

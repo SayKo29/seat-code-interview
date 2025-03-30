@@ -20,12 +20,12 @@ export function UserForm({ onSubmit, onCancel }: UserFormProps) {
     last_name: '',
     email: '',
   });
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }));
   };
-  
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -76,7 +76,7 @@ export function UserForm({ onSubmit, onCancel }: UserFormProps) {
     const randomUser = generateRandomUser();
     setForm(randomUser);
   };
-  
+
   return (
     <div className="p-4 bg-white border border-gray-200 shadow-sm dark:bg-gray-900 dark:border-none rounded-lg mb-6 max-w-[1200px] mx-auto">
       <div className="flex justify-between items-center mb-4">
