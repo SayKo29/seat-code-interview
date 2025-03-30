@@ -126,10 +126,10 @@ export function UserEdit({ user, isOpen, onOpenChange, onUserUpdated }: UserEdit
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-lg landscape:max-w-[90vw]">
+      <DialogContent className="bg-white dark:bg-gray-900 border-[1.5px] border-gray-200/80 dark:border-gray-700/80 shadow-lg p-4 sm:p-6">
         <form onSubmit={handleSubmit}>
-          <DialogHeader className="flex flex-col items-center text-center pb-2">
-            <div className="w-16 h-16 landscape:w-12 landscape:h-12 sm:w-20 sm:h-20 md:w-24 md:h-24 mb-4 rounded-full overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-600/20 p-1">
+          <DialogHeader className="flex flex-row max-xs:flex-col items-start max-xs:items-center gap-4 text-left max-xs:text-center pb-2">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 max-xs:mb-4 rounded-full overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-600/20 p-1 flex-shrink-0">
               {user.avatar ? (
                 <img 
                   src={user.avatar} 
@@ -138,7 +138,7 @@ export function UserEdit({ user, isOpen, onOpenChange, onUserUpdated }: UserEdit
                 />
               ) : (
                 <div className="w-full h-full bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center">
-                  <User className="w-8 h-8 landscape:w-6 landscape:h-6 sm:w-10 sm:h-10 md:w-12 md:h-12 text-gray-400" />
+                  <User className="w-8 h-8 sm:w-10 sm:h-10 text-gray-400" />
                 </div>
               )}
             </div>
@@ -147,11 +147,11 @@ export function UserEdit({ user, isOpen, onOpenChange, onUserUpdated }: UserEdit
             </DialogTitle>
           </DialogHeader>
           
-          <div className="space-y-4 my-4 landscape:my-2 max-h-[60vh] landscape:max-h-[40vh] overflow-y-auto pr-2">
-            <div className="grid grid-cols-1 landscape:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="space-y-4 my-4 max-xs:my-2 max-h-[50vh] landscape:max-h-[35vh] overflow-y-auto">
+            <div className="grid grid-cols-2 max-xs:grid-cols-1 gap-3">
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <User className="w-4 h-4 text-blue-500" />
+                  <User className="w-4 h-4 text-blue-500 flex-shrink-0" />
                   <label htmlFor="first_name" className="text-sm font-medium text-gray-700 dark:text-gray-300">
                     {t("table.columns.firstName")}
                   </label>
@@ -170,7 +170,7 @@ export function UserEdit({ user, isOpen, onOpenChange, onUserUpdated }: UserEdit
               
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <User className="w-4 h-4 text-blue-500" />
+                  <User className="w-4 h-4 text-blue-500 flex-shrink-0" />
                   <label htmlFor="last_name" className="text-sm font-medium text-gray-700 dark:text-gray-300">
                     {t("table.columns.lastName")}
                   </label>
@@ -187,9 +187,9 @@ export function UserEdit({ user, isOpen, onOpenChange, onUserUpdated }: UserEdit
                 )}
               </div>
               
-              <div className="space-y-2 md:col-span-2 lg:col-span-3">
+              <div className="space-y-2 col-span-2 max-xs:col-span-1">
                 <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-blue-500" />
+                  <Mail className="w-4 h-4 text-blue-500 flex-shrink-0" />
                   <label htmlFor="email" className="text-sm font-medium text-gray-700 dark:text-gray-300">
                     {t("userDetail.labels.email", { ns: "users" })}
                   </label>
@@ -208,7 +208,7 @@ export function UserEdit({ user, isOpen, onOpenChange, onUserUpdated }: UserEdit
               
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-blue-500" />
+                  <Phone className="w-4 h-4 text-blue-500 flex-shrink-0" />
                   <label htmlFor="phone" className="text-sm font-medium text-gray-700 dark:text-gray-300">
                     {t("userDetail.labels.phone", { ns: "users" })}
                   </label>
@@ -224,7 +224,7 @@ export function UserEdit({ user, isOpen, onOpenChange, onUserUpdated }: UserEdit
               
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-blue-500" />
+                  <MapPin className="w-4 h-4 text-blue-500 flex-shrink-0" />
                   <label htmlFor="location" className="text-sm font-medium text-gray-700 dark:text-gray-300">
                     {t("userDetail.labels.location", { ns: "users" })}
                   </label>
@@ -238,9 +238,9 @@ export function UserEdit({ user, isOpen, onOpenChange, onUserUpdated }: UserEdit
                 />
               </div>
               
-              <div className="space-y-2 md:col-span-2 lg:col-span-3">
+              <div className="space-y-2 col-span-2 max-xs:col-span-1">
                 <div className="flex items-center gap-2">
-                  <Briefcase className="w-4 h-4 text-blue-500" />
+                  <Briefcase className="w-4 h-4 text-blue-500 flex-shrink-0" />
                   <label htmlFor="position" className="text-sm font-medium text-gray-700 dark:text-gray-300">
                     {t("userDetail.labels.position", { ns: "users" })}
                   </label>
@@ -256,32 +256,35 @@ export function UserEdit({ user, isOpen, onOpenChange, onUserUpdated }: UserEdit
             </div>
           </div>
           
-          <DialogFooter className="mt-4 landscape:mt-2 flex flex-col-reverse landscape:flex-row sm:flex-row gap-2 mx-2">
-            <Button 
-              type="button"
-              variant="outline" 
-              onClick={() => onOpenChange(false)}
-              className="w-full landscape:w-auto sm:w-auto transition-all duration-200 hover:scale-105 hover:shadow-md hover:bg-gray-100 dark:hover:bg-gray-800"
-            >
-              {t("buttons.cancel", { ns: "common" })}
-            </Button>
-            <Button 
-              type="submit"
-              disabled={updateMutation.isPending}
-              className="w-full landscape:w-auto sm:w-auto bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white transition-all duration-200 hover:scale-105 hover:shadow-lg"
-            >
-              {updateMutation.isPending ? (
-                <span className="flex items-center gap-2">
-                  <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full" />
-                  {t("buttons.saving", { ns: "common" })}
-                </span>
-              ) : (
-                <span className="flex items-center gap-2">
-                  <Save className="h-4 w-4" />
-                  {t("buttons.save", { ns: "common" })}
-                </span>
-              )}
-            </Button>
+          <DialogFooter className="mt-2">
+            <div className="flex gap-2 w-full xs:w-auto justify-end">
+              <Button 
+                type="button"
+                onClick={() => onOpenChange(false)}
+                variant="outline"
+                className="w-auto xs:w-auto"
+              >
+                {t("buttons.cancel", { ns: "common" })}
+              </Button>
+              <Button 
+                type="submit"
+                disabled={updateMutation.isPending}
+                className="w-auto xs:w-auto bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white 
+                transition-all duration-200 hover:scale-105 hover:shadow-lg"
+              >
+                {updateMutation.isPending ? (
+                  <div className="flex items-center gap-2">
+                    <div className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full"></div>
+                    <span>{t("userEdit.saving", { ns: "users" })}</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-2">
+                    <Save className="h-4 w-4" />
+                    {t("buttons.save", { ns: "common" })}
+                  </div>
+                )}
+              </Button>
+            </div>
           </DialogFooter>
         </form>
       </DialogContent>
